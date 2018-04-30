@@ -1,0 +1,43 @@
+<h3>
+  Adjust Point
+</h3>
+
+<form #formAdjustPoint="ngForm" class="form-horizontal" role="form" method="POST"  (ngSubmit)="adjustPoint()">
+  
+  <div class="row">
+      <div class="col-md-4">
+          <div class="form-group has-danger">
+              <label>Reason Code</label>
+              <div class="">
+                  
+                  <select [(ngModel)]='reasonCode' class="form-control" name='reasonCode' required autofocus >
+                      <option value=''>--SELECT--</option>
+                      <option value='Appraisal Process'>Appraisal Process </option>
+                      <option value='Recognition and Rewards'>Recognition and Rewards</option>
+                      <option value='Complaint and Grievance'>Complaint and Grievance</option>
+                  </select>
+              </div>
+          </div>
+      </div>
+
+ 
+      <div class="col-md-4">
+          <div class="form-group">
+              <label>Point To Be Adjusted</label>
+              <div class="">
+                  
+                  <input [(ngModel)]='pointToBeAdj' type="number" name="pointToBeAdj" class="form-control" id="pointToBeAdj"
+                         placeholder="0.0" required>
+              </div>
+          </div>
+      </div>
+      
+  
+      <div class="col-md-4"> 
+        <div class="form-group">
+           <label class="col-md-12">&nbsp;</label> 
+           <button [disabled]="!formAdjustPoint.valid" class="btn btn-success" type="submit"><i class="fa fa-sign-in"></i> Adjust</button>                                
+        </div>
+      </div>
+  </div>
+</form>

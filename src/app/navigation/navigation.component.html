@@ -1,0 +1,35 @@
+<div class="header">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img width="200px" src="https://www.brooksbrothers.com/on/demandware.static/Sites-brooksbrothers-Site/-/default/dwc6599635/images/logos/logo-brooksbrothers-200Anniversary-w-fleece.svg" alt="" class="logo" itemprop="logo"/>
+  </a>
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" *ngIf="authorizationService.roleMatch(['int-admin','united-admin'])">
+        <a class="nav-link" routerLink="/point/findEmployee" routeLinkActive="active">Points</a>
+      </li>
+      <!-- Dropdown -->
+      <li class="nav-item dropdown" *ngIf="authorizationService.roleMatch(['int-admin'])">
+        <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Employee
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbardrop">
+          <a class="dropdown-item" routerLink="/employee/add" routeLinkActive="active">Add</a>
+          <a class="dropdown-item" routerLink="/point/findEmployee" routeLinkActive="active">Edit</a>
+        </div>
+      </li>
+      <li class="nav-item" *ngIf="authorizationService.roleMatch(['int-admin'])">
+        <a class="nav-link" routerLink="/reason-code" routeLinkActive="active">Reason Code</a>
+      </li>
+    </ul>
+     <form class="form-inline my-2 my-lg-0" (ngSubmit)="logOut()">
+      <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+      <button class="btn btn-primary" type="submit">Log Out</button>
+    </form>
+  </div>
+</nav>
+</div>

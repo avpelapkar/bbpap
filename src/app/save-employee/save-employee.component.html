@@ -1,0 +1,148 @@
+<app-navigation></app-navigation>
+<div class="container">
+    <form #employeeAddForm="ngForm" class="form-horizontal frmLogin" role="form" method="POST" (ngSubmit)="addEmployee()">
+        <h3>{{title}}</h3>
+        <div class="row">
+            <div class="form-group required col-md-3">
+                <label for="empoyeeId">Employee Id</label>
+                <input [(ngModel)]='empoyeeId' [readonly]="isEditMode" id="empoyeeId" name="empoyeeId" type="text" class="form-control" required>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="badge">Badge</label>
+                <input [(ngModel)]='badge' id="badge" name="badge" type="text" class="form-control" >
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="initial">Initial</label>
+                <input [(ngModel)]='initial' id="initial" name="initial" type="text" class="form-control" >
+            </div>
+            <div class="form-group col-md-3">
+                <label for="pin">Pin</label>
+                <input [(ngModel)]='pin' id="pin" name="pin" type="number" class="form-control" >
+            </div>
+
+            <div class="form-group required col-md-3">
+                <label for="email">Email</label>
+                <input [(ngModel)]='email' id="email" name="email" type="text" class="form-control" required="required" placeholder="you@example.com"
+                    [pattern]="emailPattern">
+            </div>
+            <div class="form-group required col-md-3">
+                <label for="firstName">First Name</label>
+                <input [(ngModel)]='firstName' id="firstName" name="firstName" type="text" class="form-control" required="required">
+            </div>
+
+            <div class="form-group required col-md-3">
+                <label for="lastName">Last Name</label>
+                <input [(ngModel)]='lastName' id="lastName" name="lastName" type="text" class="form-control" required="required">
+            </div>
+            <div class="form-group required col-md-3">
+                <label for="gender">Gender</label>
+
+                <div class="radio">
+                    <input [(ngModel)]='gender' type="radio" name="gender" value="m">Male
+                </div>
+                <div class="radio ">
+                    <input [(ngModel)]='gender' type="radio" name="gender" value="f">Female
+                </div>
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="phoneNumber">Phone Number</label>
+                <input [(ngModel)]='phoneNumber' id="phoneNumber" name="phoneNumber" type="text" class="form-control">
+            </div>
+            <div class="form-group required col-md-3">
+                <label for="groupId">Group Id</label>
+                <select [(ngModel)]='groupId' name="groupId" class="form-control" id="groupId" required="required">
+            <option value="" selected="selected">--Select--</option>
+            <option value="CS">CS</option>
+            <option value="CTO">CTO</option>
+            <option value="FA">FA</option>
+          </select>
+
+            </div>
+
+            <div class="form-group required col-md-3">
+                <label for="jobCode">Job Code</label>
+
+                <select [(ngModel)]='jobCode' name="jobCode" class="form-control" id="jobCode" required="required">
+            <option value="" selected>--Select--</option>
+            <option value="EXEC">Executive</option>
+            <option value="MGR">Manager</option>
+            <option value="TL">Teaml Lead</option>
+          </select>
+            </div>
+
+
+
+            <div class="form-group required col-md-3">
+                <label for="addressLine1">Address Line1</label>
+                <textarea [(ngModel)]='addressLine1' id="addressLine1" name="addressLine1" class="form-control" required></textarea>
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="addressLine1">Address Line2</label>
+                <textarea [(ngModel)]='addressLine2' id="addressLine2" name="addressLine2" type="text" class="form-control"></textarea>
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="addressLine3">Address Line3</label>
+                <textarea [(ngModel)]='addressLine3' id="addressLine3" name="addressLine1" type="text" class="form-control"></textarea>
+            </div>
+
+            <div class="form-group required col-md-3">
+                <label for="city">City</label>
+                <input [(ngModel)]='city' id="city" name="city" type="text" class="form-control" required="required">
+            </div>
+
+            <div class="form-group required col-md-3">
+                <label for="state">State</label>
+                <input [(ngModel)]='state' id="state" name="state" type="text" class="form-control" required="required">
+            </div>
+
+            <div class="form-group required col-md-3">
+                <label for="status">Country Code</label>
+                <select [(ngModel)]='countryCode' name="countryCode" class="form-control" id="countryCode" required="required">
+        <option value="" selected="selected">--Select--</option>
+        <option value="US">United States</option>
+        <option value="MX">Mexico</option>
+      </select>
+            </div>
+            <div class="form-group required col-md-3">
+                <label for="zip">ZIP</label>
+                <input [(ngModel)]='zip' id="zip" name="zip" type="text" class="form-control" required="required">
+            </div>
+
+            <div class="form-group required col-md-3">
+                <label for="status">Status</label>
+                <select [(ngModel)]='status' name="status" class="form-control" id="status" required="required">
+          <option value="" selected="selected">--Select--</option>
+          <option value="0">Inactive</option>
+          <option value="1">Active</option>
+        </select>
+            </div>
+
+
+
+            <div class="form-group  col-md-3">
+                <p>&nbsp;</p>
+                <label class="form-check-label">
+          <input [(ngModel)]='pointEligibility' name = "pointEligibility" type="checkbox" class="form-check-input" value="0">Point Eligibility
+        </label>
+            </div>
+
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <button type="reset" class="btn btn-primary">Reset</button>
+                <button [disabled]="!employeeAddForm.valid" type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+        </div>
+
+
+    </form>
+
+</div>
